@@ -1,0 +1,7 @@
+{
+  "name": "presto-frontend-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
