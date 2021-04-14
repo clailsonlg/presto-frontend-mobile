@@ -11,7 +11,11 @@ export class LoginPage implements OnInit {
   constructor(public router: Router) { }
 
   login() {
-    this.router.navigateByUrl('/home');
+    this.router.navigate(['/home']);
+  }
+
+  changePassword() {
+    this.router.navigate(['/change-password']);
   }
 
   ngOnInit() {
