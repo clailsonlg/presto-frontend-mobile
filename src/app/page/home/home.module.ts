@@ -5,17 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import { HeaderComponent } from 'src/app/shared/components/header/header.component';
-import { FooterComponent } from 'src/app/shared/components/footer/footer.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    SharedModule
   ],
-  declarations: [HomePage, HeaderComponent, FooterComponent]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
