@@ -1,4 +1,20 @@
 <ion-content>
-  <ion-button (click)="login()">Log in</ion-button>
-  <ion-button (click)="changePassword()">Esqueci minha senha</ion-button>
+
+  <ion-img src="../../../assets/img/logo-presto.png"></ion-img>
+
+  <ion-item>
+    <ion-input placeholder="Digite seu e-mail"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="Digite sua senha"></ion-input>
+  </ion-item>
+
+  <ion-button fill="outline" expand="block">Log in com Google</ion-button>
+  <ion-button fill="outline" expand="block">Log in com Facebook</ion-button>
+  <ion-button expand="block" (click)="login()">Log in</ion-button>
+
+  <ion-button fill="clear" size="small" expand="block" (click)="changePassword()">Esqueci minha senha</ion-button>
+  <ion-button fill="clear" size="small" expand="block">Cadastre-se</ion-button>
+  <ion-button fill="clear" size="small" expand="block">Log in com QR Code ou código da mesa</ion-button>
+
 </ion-content>
