@@ -2,12 +2,15 @@
 
   <ion-img src="../../../assets/img/logo-presto.png"></ion-img>
 
-  <ion-item>
-    <ion-input placeholder="Digite seu e-mail"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="Digite sua senha"></ion-input>
-  </ion-item>
+  <form>
+    <ion-item>
+      <ion-input [(ngModel)]="credential.email" name="email" type="text" placeholder="Digite seu e-mail" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="credential.senha" name="senha" type="password" placeholder="Digite sua senha" ></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block" (click)="login()">Log in</ion-button>
+  </form>
 
   <ion-button fill="outline" expand="block">Log in com Google</ion-button>
   <ion-button fill="outline" expand="block">Log in com Facebook</ion-button>

@@ -1,3 +1,5 @@
+import { CredentialsDTO } from './../../models/credentials.dto';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,17 +10,27 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public router: Router) { }
+  credential: CredentialsDTO = {
+    email: "",
+    senha: ""
+  };
+
+  constructor(public router: Router, private auth: AuthService) { }
+
+  ngOnInit() {
+
+  }
 
   login() {
-    this.router.navigate(['/home']);
+    this.auth.authenticate(this.credential)
+      .subscribe(response => {
+        this.router.navigate(['/home']);
+      },
+      error => { });
   }
 
   changePassword() {
     this.router.navigate(['/change-password']);
-  }
-
-  ngOnInit() {
   }
 
 }
