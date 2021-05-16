@@ -21,6 +21,15 @@ export class LoginPage implements OnInit {
 
   }
 
+  ionViewDidEnter() {
+    this.auth.refreshToken()
+      .subscribe(response => {
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        this.router.navigate(['/home']);
+      },
+      error => { });
+  }
+
   login() {
     this.auth.authenticate(this.credential)
       .subscribe(response => {

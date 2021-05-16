@@ -1,3 +1,4 @@
+import { Usuario } from './../models/usuario';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { StorageService } from './storage.service';
@@ -36,18 +37,34 @@ export class AuthService {
         return user;
       }));
     ;
+  }
 
+  refreshToken() {
+    return this.http.post<any>(
+      `${PREFIX.baseUrl}/auth/refresh_token`,
+      {},
+      {
+        observe: 'response'
+      });
   }
 
   successfulLogin(authorizationValue: string) {
-    console.log(authorizationValue);
+    console.log("CCCCCCCCC")
     let tok = authorizationValue.substring(7);
-    let user : LocalUser = {
-      token: tok
-      ,
-      email: this.jwtHelper.decodeToken(tok).sub
-    };
-    this.storage.setLocalUser(user);
+      this.http.get<Usuario>(PREFIX.baseUrl + '/usuario/' + this.jwtHelper.decodeToken(tok).sub
+      ).pipe(map(user => {
+      console.log("AAAAAAAAA");
+      return user.restaurantes[0].id;
+      })).subscribe(number => {
+      let user : LocalUser = {
+        token: tok
+        ,
+        email: this.jwtHelper.decodeToken(tok).sub
+        ,
+        idRestaurante: number
+      };
+      this.storage.setLocalUser(user);
+    })
   }
 
   logout() {
