@@ -1,3 +1,4 @@
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthGuard } from 'src/app/services/auth-guard.service';
 import { StorageService } from './storage.service';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     StorageService,
     JwtHelperService,
     AuthGuard,
-    HttpClientModule
+    HttpClientModule,
+    NativeStorage
   ]
 })
 export class ServicesModule { }

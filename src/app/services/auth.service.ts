@@ -49,11 +49,9 @@ export class AuthService {
   }
 
   successfulLogin(authorizationValue: string) {
-    console.log("CCCCCCCCC")
     let tok = authorizationValue.substring(7);
       this.http.get<Usuario>(PREFIX.baseUrl + '/usuario/' + this.jwtHelper.decodeToken(tok).sub
       ).pipe(map(user => {
-      console.log("AAAAAAAAA");
       return user.restaurantes[0].id;
       })).subscribe(number => {
       let user : LocalUser = {

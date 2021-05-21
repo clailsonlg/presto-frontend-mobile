@@ -1,3 +1,4 @@
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { StorageService } from './services/storage.service';
 import { ServicesModule } from 'src/app/services/services.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule, StorageService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule, StorageService, NativeStorage],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
