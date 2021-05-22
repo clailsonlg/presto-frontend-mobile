@@ -61,7 +61,7 @@ export class AuthService {
         ,
         idRestaurante: number
       };
-      this.storage.setLocalUser(user);
+        this.storage.setLocalUser(user);
     })
   }
 
