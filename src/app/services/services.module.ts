@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthGuard } from 'src/app/services/auth-guard.service';
 import { StorageService } from './storage.service';
@@ -7,6 +8,7 @@ import { UsuarioService } from './usuario.service';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { TokenInterceptor } from '../interceptors/token-interceptor';
 
 @NgModule({
   declarations: [],
@@ -21,7 +23,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
     JwtHelperService,
     AuthGuard,
     HttpClientModule,
-    NativeStorage
+    NativeStorage,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 })
 export class ServicesModule { }
