@@ -9,7 +9,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-      if (this.auth.loggedUser().token !== null) {
+      if (this.auth.loggedUser() !== null) {
         request = request.clone({
           setHeaders: {
             Authorization: `Bearer ${this.auth.loggedUser().token}`
