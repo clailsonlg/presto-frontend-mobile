@@ -1,3 +1,3 @@
 export const PREFIX = {
-  baseUrl: "http://localhost:8080"
+  baseUrl: "https://presto-app-backend.herokuapp.com"
 }
