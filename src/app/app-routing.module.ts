@@ -22,10 +22,6 @@ const routes: Routes = [
   {
     path: 'menu-list',
     loadChildren: () => import('./page/menu/menu-list/menu-list.module').then( m => m.MenuListPageModule)
-  },
-  {
-    path: 'product-menu',
-    loadChildren: () => import('./page/menu/product-menu/product-menu-routing.module').then( m => m.ProductMenuPageRoutingModule)
   }
 
 ];
