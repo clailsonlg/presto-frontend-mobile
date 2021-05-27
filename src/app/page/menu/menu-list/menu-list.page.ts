@@ -1,25 +1,65 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Cardapio } from 'src/app/models/cardapio';
+import { Produto } from 'src/app/models/produto';
+import { CardapioService } from 'src/app/services/cardapio.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'menu-list',
   templateUrl: 'menu-list.page.html',
   styleUrls: ['menu-list.page.scss'],
 })
-export class MenuListPage {
+export class MenuListPage implements OnInit {
+  produtos: Produto[];
+  cardapio: Cardapio;
+  nome: String;
 
-  constructor(public router: Router) { }
+  constructor(private cardapioService: CardapioService) { }
 
-  showPizzaMenu() {
-    this.router.navigate(['/pizza-menu']);
+  ngOnInit(): void {
+    this.cardapioService.produtosCardapio().subscribe(
+      produtos => {
+        this.produtos = produtos;
+      }
+    );
   }
 
-  showDrinksMenu() {
-    this.router.navigate(['/drinks-menu']);
+  exibirfiltroGeral(){
+    this.cardapioService.produtosCardapio().subscribe(
+      produtos => {
+        this.produtos = produtos;
+      }
+    );
   }
 
-  showDessertMenu() {
-    this.router.navigate(['/dessert-menu']);
+  exibirfiltroComida(){
+    this.cardapioService.produtoPorTipo("comida").subscribe(
+      produtosLista => {
+        this.produtos = produtosLista;
+      }
+    );
   }
 
+  exibirfiltroBebida(){
+    this.cardapioService.produtoPorTipo("bebida").subscribe(
+      produtosLista => {
+        this.produtos = produtosLista;
+      }
+    );
+  }
+
+  buscar() {
+    if (this.nome === null || this.nome === '') {
+      this.cardapioService.produtosCardapio().subscribe(
+        produtos => {
+          this.produtos = produtos;
+        }
+      );
+    } else if (this.nome !== null && this.nome !== '') {
+      this.cardapioService.produtosPorNomeCardapio(this.nome).subscribe(
+        response => {
+          this.produtos = response;
+        }
+      );
+    }
+  }
 }

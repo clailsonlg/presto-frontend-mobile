@@ -9,6 +9,7 @@ import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { TokenInterceptor } from '../interceptors/token-interceptor';
+import { CardapioService } from './cardapio.service';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { TokenInterceptor } from '../interceptors/token-interceptor';
     AuthService,
     UsuarioService,
     StorageService,
+    CardapioService,
     JwtHelperService,
     AuthGuard,
     HttpClientModule,

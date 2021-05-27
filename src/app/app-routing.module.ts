@@ -24,17 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./page/menu/menu-list/menu-list.module').then( m => m.MenuListPageModule)
   },
   {
-    path: 'pizza-menu',
-    loadChildren: () => import('./page/menu/pizza-menu/pizza-menu.module').then( m => m.PizzaMenuPageModule)
-  }
-  ,
-  {
-    path: 'drinks-menu',
-    loadChildren: () => import('./page/menu//drinks-menu/drinks-menu.module').then( m => m.DrinksMenuPageModule)
-  },
-  {
-    path: 'dessert-menu',
-    loadChildren: () => import('./page/menu/dessert-menu/dessert-menu.module').then( m => m.DessertMenuPageModule)
+    path: 'product-menu',
+    loadChildren: () => import('./page/menu/product-menu/product-menu-routing.module').then( m => m.ProductMenuPageRoutingModule)
   }
 
 ];
