@@ -1,9 +1,9 @@
 <app-header></app-header>
 
 <ion-content [fullscreen]="true" class="app-bg">
-  <ion-button expand="block" (click)="exibirfiltroGeral()">Pizzas</ion-button>
-  <ion-button expand="block" (click)="exibirfiltroComida()">Bebidas</ion-button>
-  <ion-button expand="block" (click)="exibirfiltroBebida()">Sobramesas</ion-button>
+  <ion-button expand="block" (click)="exibirfiltroGeral()">Geral</ion-button>
+  <ion-button expand="block" (click)="exibirfiltroComida()">Comida</ion-button>
+  <ion-button expand="block" (click)="exibirfiltroBebida()">Bebidas</ion-button>
 
   <div class="row">
     <div class="col-md-3" *ngFor="let produto of produtos">

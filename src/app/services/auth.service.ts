@@ -1,6 +1,5 @@
 import { Usuario } from './../models/usuario';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { StorageService } from './storage.service';
 import { CredentialsDTO } from './../models/credentials.dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -70,7 +69,7 @@ export class AuthService {
   }
 
   loggedUser(): LocalUser {
-    return JSON.parse(localStorage.getItem('localUser'));
+    return this.storage.getLocalUser();
   }
 
 }
