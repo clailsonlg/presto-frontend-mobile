@@ -9,18 +9,11 @@ export class StorageService {
   constructor(private nativeStorage: NativeStorage) { }
 
   getLocalUser() : LocalUser {
-    let usr = null; this.nativeStorage.getItem(STORAGE_KEYS.localUser)
-      .then(
-        data => {
-          usr = JSON.parse(data)
-        },
-        error => {
-          console.log(error)
-        }
-      )
+      let usr = null;
+      usr = this.nativeStorage.getItem(STORAGE_KEYS.localUser)
+        .catch(console.log);
       return usr;
-    ;
-  }
+    }
 
   setLocalUser(obj : LocalUser) {
     if (obj == null) {
