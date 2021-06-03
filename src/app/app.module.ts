@@ -1,6 +1,5 @@
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { StorageService } from './services/storage.service';
-import { ServicesModule } from 'src/app/services/services.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

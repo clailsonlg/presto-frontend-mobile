@@ -11,7 +11,7 @@ export class HomePage {
   constructor(public router: Router) { }
 
   startService() {
-    this.router.navigate(['/menu-list']);
+    this.router.navigate(['/qrcode']);
   }
 
 }
