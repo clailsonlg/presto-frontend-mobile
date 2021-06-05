@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { TokenInterceptor } from '../interceptors/token-interceptor';
 import { CardapioService } from './cardapio.service';
+import { CartService } from './cart.service';
+import { ProdutoService } from './product.service';
 
 @NgModule({
   declarations: [],
@@ -26,6 +28,8 @@ import { CardapioService } from './cardapio.service';
     AuthGuard,
     HttpClientModule,
     NativeStorage,
+    CartService,
+    ProdutoService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ]
 })
