@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'menu-list',
     loadChildren: () => import('./page/menu/menu-list/menu-list.module').then( m => m.MenuListPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./page/register/register.module').then( m => m.RegisterPageModule)
   }
 
 ];

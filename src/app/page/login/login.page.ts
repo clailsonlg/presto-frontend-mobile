@@ -42,4 +42,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/change-password']);
   }
 
+  registerUser() {
+    this.router.navigate(['/register']);
+  }
+
 }

@@ -1,0 +1,23 @@
+<app-header></app-header>
+
+  <form [formGroup]="userForm" (ngSubmit)="insertUser()">
+    <ion-item>
+      <ion-input name="name" type="text"  formControName="nome" placeholder="Digite seu nome" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="email" type="text" placeholder="Digite seu e-mail" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="email" type="text" placeholder="Confirme seu e-mail" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="email" type="text" placeholder="Digite sua senha" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="email" type="text" placeholder="Confirme sua senha" ></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" >Register</ion-button>
+  </form>
+
+<app-footer></app-footer>
