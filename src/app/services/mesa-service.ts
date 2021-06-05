@@ -12,6 +12,6 @@ import { PREFIX } from '../api_config/prefix';
     constructor(private http: HttpClient, private user: AuthService) { }
 
     logarNaMesa(id: string): Observable<any>{
-      return this.http.put<any>(`${PREFIX.baseUrl}/mesa/addcliente/${id}/${this.user.loggedUser().email}/${this.user.loggedUser().idRestaurante}` , true);
+      return this.http.put<any>(`${PREFIX.baseUrl}/mesa/addcliente/${+id}/${this.user.loggedUser().email}/${this.user.loggedUser().idRestaurante}`, {});
     }
   }
