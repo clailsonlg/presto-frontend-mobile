@@ -13,18 +13,18 @@ export class QrCodeComponent implements OnInit {
   barcodeScanner: BarcodeScanner = new BarcodeScanner();
   constructor(private mesaService: MesaService, private route: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  abrirQr(): void{
+  abrirQr(): void {
     this.barcodeScanner.scan().then(barcodeData => {
-     this.mesaService.logarNaMesa(barcodeData.text).subscribe(
-       res =>{
-        this.route.navigateByUrl("/menu-list");
-       },
-       error => {
-          alert("Tentar novamente, mesa não encontrada!")
-       }
-     );
+      this.mesaService.logarNaMesa(barcodeData.text).subscribe(
+        res => {
+          this.route.navigateByUrl("/menu-list");
+        },
+        error => {
+          console.log(error)
+        }
+      );
     }).catch(err => {
       // error
     });

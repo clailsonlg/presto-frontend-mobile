@@ -8,25 +8,25 @@ export class StorageService {
   user: LocalUser;
 
   constructor(private nativeStorage: NativeStorage) {
-   }
+  }
 
-   getLocalUser() : LocalUser {
+  getLocalUser(): LocalUser {
     let usr = localStorage.getItem(STORAGE_KEYS.localUser);
     if (usr == null) {
-        return null;
+      return null;
     }
     else {
-        console.log(usr)
-        return JSON.parse(usr);
+      console.log(usr)
+      return JSON.parse(usr);
     }
-}
+  }
 
-setLocalUser(obj : LocalUser) {
+  setLocalUser(obj: LocalUser) {
     if (obj == null) {
-        localStorage.removeItem(STORAGE_KEYS.localUser);
+      localStorage.removeItem(STORAGE_KEYS.localUser);
     }
     else {
-        localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(obj));
+      localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(obj));
     }
-}
+  }
 }
