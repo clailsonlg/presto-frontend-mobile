@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'menu-list',
     loadChildren: () => import('./page/menu/menu-list/menu-list.module').then( m => m.MenuListPageModule)
+  },
+  {
+    path: 'qrcode',
+    loadChildren: () => import('./page/qr-code/qr-code.module').then( m => m.QrCodeModule)
   }
 
 ];

@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "presto-frontend-mobile",
+  "appName": "Presto",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
@@ -9,5 +9,9 @@
       "launchShowDuration": 0
     }
   },
-  "cordova": {}
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.42.2:8101",
+    "cleartext": true
+  }
 }
