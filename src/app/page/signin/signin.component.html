@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<ion-content>
+  <form>
+    <div class="text-center text-danger mt-4">
+      <ion-label>
+        Nome
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.nome" name="nome" type="text" placeholder="nome"></ion-input>
+    </ion-item>
+    <div class="text-center text-danger mt-3">
+      <ion-label>
+        E-mail
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.email" name="email" type="text" placeholder="email"></ion-input>
+    </ion-item>
+    <div class="text-center text-danger mt-3">
+      <ion-label>
+        Confirme seu e-mail
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input name="emailconf" type="text" placeholder="confirmação de email"></ion-input>
+    </ion-item>
+    <div class="text-center text-danger mt-3">
+      <ion-label>
+        Senha
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senha" name="senha" type="text" placeholder="senha"></ion-input>
+    </ion-item>
+    <div class="text-center text-danger mt-3">
+      <ion-label>
+        Confirme sua senha
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input name="senhaconf" type="text" placeholder="confirmação de senha"></ion-input>
+    </ion-item>
+    <div class="text-center mt-5">
+      <ion-button type="submit" color="danger" shape="round" (click)="addUser()">Cadastrar</ion-button>
+    </div>
+  </form>
+</ion-content>
