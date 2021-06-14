@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { CardapioService } from './cardapio.service';
+import { PedidoService } from './pedido.service';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { CardapioService } from './cardapio.service';
     StorageService,
     CardapioService,
     MesaService,
+    PedidoService,
     JwtHelperService,
     AuthGuard,
     HttpClientModule
