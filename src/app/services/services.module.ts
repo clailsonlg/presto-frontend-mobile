@@ -1,3 +1,4 @@
+import { RestaurantService } from './restaurant.service';
 import { MesaService } from './mesa-service';
 import { AuthGuard } from 'src/app/services/auth-guard.service';
 import { StorageService } from './storage.service';
@@ -20,6 +21,7 @@ import { CardapioService } from './cardapio.service';
     UsuarioService,
     StorageService,
     CardapioService,
+    RestaurantService,
     MesaService,
     JwtHelperService,
     AuthGuard,

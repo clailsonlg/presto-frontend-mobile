@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
         this.auth.successfulLogin(response.headers.get('Authorization'));
         this.router.navigate(['/home']);
       },
-      error => { });
+        error => { });
   }
 
   login() {
@@ -35,11 +35,15 @@ export class LoginPage implements OnInit {
       .subscribe(response => {
         this.router.navigate(['/home']);
       },
-      error => { });
+        error => { });
   }
 
   changePassword() {
     this.router.navigate(['/change-password']);
+  }
+
+  goToSignIn() {
+    this.router.navigate(['/signin']);
   }
 
 }

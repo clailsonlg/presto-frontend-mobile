@@ -4,10 +4,10 @@
 
   <form>
     <ion-item>
-      <ion-input [(ngModel)]="credential.email" name="email" type="text" placeholder="Digite seu e-mail" ></ion-input>
+      <ion-input [(ngModel)]="credential.email" name="email" type="text" placeholder="Digite seu e-mail"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="credential.senha" name="senha" type="password" placeholder="Digite sua senha" ></ion-input>
+      <ion-input [(ngModel)]="credential.senha" name="senha" type="password" placeholder="Digite sua senha"></ion-input>
     </ion-item>
     <ion-button type="submit" expand="block" (click)="login()">Log in</ion-button>
   </form>
@@ -16,7 +16,7 @@
   <ion-button fill="outline" expand="block">Log in com Facebook</ion-button>
 
   <ion-button fill="clear" size="small" expand="block" (click)="changePassword()">Esqueci minha senha</ion-button>
-  <ion-button fill="clear" size="small" expand="block">Cadastre-se</ion-button>
+  <ion-button fill="clear" size="small" expand="block" (click)="goToSignIn()">Cadastre-se</ion-button>
   <ion-button fill="clear" size="small" expand="block">Log in com QR Code ou código da mesa</ion-button>
 
 </ion-content>
