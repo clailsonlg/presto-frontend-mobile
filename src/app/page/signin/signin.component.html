@@ -32,7 +32,7 @@
       </ion-label>
     </div>
     <ion-item>
-      <ion-input [(ngModel)]="usuario.senha" name="senha" type="text" placeholder="senha"></ion-input>
+      <ion-input [(ngModel)]="usuario.senha" name="senha" type="password" placeholder="senha"></ion-input>
     </ion-item>
     <div class="text-center text-danger mt-3">
       <ion-label>
@@ -40,8 +40,23 @@
       </ion-label>
     </div>
     <ion-item>
-      <ion-input name="senhaconf" type="text" placeholder="confirmação de senha"></ion-input>
+      <ion-input name="senhaconf" type="password" placeholder="confirmação de senha"></ion-input>
     </ion-item>
+    <div class="text-center text-danger mt-4">
+      <ion-label>
+        Data de nascimento
+      </ion-label>
+    </div>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="text" placeholder="data de nascimento"></ion-input>
+    </ion-item>
+    <div>
+      <label for="nomeRestaurante" class="ml-1 mt-3 font-weight-bold">Qual o restaurante:</label>
+      <select [(ngModel)]="usuario.nomeRestaurante" name="nomeRestaurante" placeholder="Nome do Restaurante" required>
+          <option *ngFor="let restaurant of restaurants" [value]="restaurant">{{restaurant}}</option>
+      </select>
+    </div>
+
     <div class="text-center mt-5">
       <ion-button type="submit" color="danger" shape="round" (click)="addUser()">Cadastrar</ion-button>
     </div>
