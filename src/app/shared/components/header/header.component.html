@@ -1,7 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Presto
-    </ion-title>
+  <ion-toolbar class="toolbar">
+    <ion-tabs>
+      <ion-tab-bar>
+        <ion-tab-button>
+          <ion-icon name="arrow-back-outline"></ion-icon>        </ion-tab-button>
+          <ion-img src="../../../../assets/img/presto-title.png" style="height: 100px; width: 100px;"></ion-img>
+        <ion-tab-button>
+          <ion-icon name="log-out-outline" (click)="logout()"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
   </ion-toolbar>
 </ion-header>
