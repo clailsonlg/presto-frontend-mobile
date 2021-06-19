@@ -7,58 +7,61 @@
         Nome
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input [(ngModel)]="usuario.nome" name="nome" type="text" placeholder="nome"></ion-input>
-    </ion-item>
+    <div class="div-input">
+      <input [(ngModel)]="usuario.nome" name="nome" type="text" placeholder="Digite seu nome">
+    </div>
     <div class="text-center text-danger mt-3">
       <ion-label>
         E-mail
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input [(ngModel)]="usuario.email" name="email" type="text" placeholder="email"></ion-input>
-    </ion-item>
+    <div class="div-input">
+      <input [(ngModel)]="usuario.email" name="email" type="text" placeholder="Digite seu e-mail">
+    </div>
     <div class="text-center text-danger mt-3">
       <ion-label>
         Confirme seu e-mail
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input name="emailconf" type="text" placeholder="confirmação de email"></ion-input>
-    </ion-item>
+    <div class="div-input">
+      <input name="emailconf" type="text" placeholder="confirmação de email">
+    </div>
     <div class="text-center text-danger mt-3">
       <ion-label>
         Senha
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input [(ngModel)]="usuario.senha" name="senha" type="password" placeholder="senha"></ion-input>
-    </ion-item>
+    <div class="div-input">
+      <input [(ngModel)]="usuario.senha" name="senha" type="password" placeholder="Digite sua senha">
+    </div>
     <div class="text-center text-danger mt-3">
       <ion-label>
         Confirme sua senha
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input name="senhaconf" type="password" placeholder="confirmação de senha"></ion-input>
-    </ion-item>
+    <div class="div-input">
+      <input name="senhaconf" type="password" placeholder="Confirmação de senha">
+    </div>
     <div class="text-center text-danger mt-4">
       <ion-label>
         Data de nascimento
       </ion-label>
     </div>
-    <ion-item>
-      <ion-input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="text" placeholder="data de nascimento"></ion-input>
-    </ion-item>
-    <div>
-      <label for="nomeRestaurante" class="ml-1 mt-3 font-weight-bold">Qual o restaurante:</label>
-      <select [(ngModel)]="usuario.nomeRestaurante" name="nomeRestaurante" placeholder="Nome do Restaurante" required>
+    <div class="div-input">
+      <input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="text" placeholder="Digite sua data de nascimento">
+    </div>
+    <div class="row align-items-start mt-4">
+      <div class="col ms-5">
+        <label class="text-center text-danger" for="nomeRestaurante" >Qual o restaurante:</label>
+      </div>
+      <div class="col">
+        <select [(ngModel)]="usuario.nomeRestaurante" class="form-select form-select-sm" name="nomeRestaurante" placeholder="Nome do Restaurante" required>
           <option *ngFor="let restaurant of restaurants" [value]="restaurant">{{restaurant}}</option>
       </select>
+      </div>
     </div>
-
     <div class="text-center mt-5">
-      <ion-button type="submit" color="danger" shape="round" (click)="addUser()">Cadastrar</ion-button>
+      <ion-button class="mt-3 mx-5 register-button" type="submit" expand="block" (click)="addUser()">Cadastrar</ion-button>
     </div>
   </form>
 </ion-content>

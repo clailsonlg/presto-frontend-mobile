@@ -1,0 +1,26 @@
+ion-content {
+  --background: none;
+  background-image: url('/assets/img/presto-background.png');
+}
+
+.register-button {
+  --background: var(--presto-main-color);
+}
+
+input {
+  background-color: white;
+  border: 2px solid #ececec;
+  border-radius: 5px;
+  padding: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.div-input {
+  width: 300px;
+  margin: auto;
+}
+
+select {
+  width: 10px;
+}
