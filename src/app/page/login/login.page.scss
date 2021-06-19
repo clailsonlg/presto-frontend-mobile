@@ -1,1 +1,15 @@
+ion-content {
+  --background: none;
+  background-image: url('/assets/img/presto-background.png');
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
 
+.login-button {
+  --background: var(--presto-main-color);
+}
+
+.options {
+  --color: var(--presto-main-color);
+}
