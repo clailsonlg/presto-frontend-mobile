@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProductMenuComponent } from './components/product-menu/product-menu.component';
+import { OrderDetailsComponent } from '../page/menu/menu-list/order-details/order-details.component';
 
 
 
@@ -14,6 +15,6 @@ import { ProductMenuComponent } from './components/product-menu/product-menu.com
   exports: [
     HeaderComponent, FooterComponent, ProductMenuComponent
   ],
-  schemas: [ NO_ERRORS_SCHEMA ]
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class SharedModule { }

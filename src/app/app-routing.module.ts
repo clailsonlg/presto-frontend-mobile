@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { OrderDetailsComponent } from './page/menu/menu-list/order-details/order-details.component';
 import { SignInModule } from './page/signin/signin.module';
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'menu-list',
     loadChildren: () => import('./page/menu/menu-list/menu-list.module').then(m => m.MenuListPageModule)
+  },
+  {
+    path: 'order-details',
+    loadChildren: () => import('./page/menu/menu-list/order-details/order-details.module').then(m => m.OrderDetailsModule)
   },
   {
     path: 'qrcode',

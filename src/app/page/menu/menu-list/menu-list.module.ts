@@ -17,4 +17,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   declarations: [MenuListPage]
 })
-export class MenuListPageModule {}
+export class MenuListPageModule { }

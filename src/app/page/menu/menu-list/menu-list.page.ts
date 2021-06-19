@@ -18,12 +18,13 @@ export class MenuListPage implements OnInit {
   ngOnInit(): void {
     this.cardapioService.produtosCardapio().subscribe(
       produtos => {
+        console.log(produtos)
         this.produtos = produtos;
       }
     );
   }
 
-  exibirfiltroGeral(){
+  exibirfiltroGeral() {
     this.cardapioService.produtosCardapio().subscribe(
       produtos => {
         this.produtos = produtos;
@@ -31,7 +32,7 @@ export class MenuListPage implements OnInit {
     );
   }
 
-  exibirfiltroComida(){
+  exibirfiltroComida() {
     this.cardapioService.produtoPorTipo("comida").subscribe(
       produtosLista => {
         this.produtos = produtosLista;
@@ -39,7 +40,7 @@ export class MenuListPage implements OnInit {
     );
   }
 
-  exibirfiltroBebida(){
+  exibirfiltroBebida() {
     this.cardapioService.produtoPorTipo("bebida").subscribe(
       produtosLista => {
         this.produtos = produtosLista;

@@ -1,3 +1,4 @@
+import { Pedido } from './../models/pedido';
 import { LocalUser } from './../models/local_user';
 import { Injectable } from "@angular/core";
 import { STORAGE_KEYS } from "../api_config/storage_keys.config";
@@ -27,6 +28,26 @@ export class StorageService {
     }
     else {
       localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(obj));
+    }
+  }
+
+  getPedido(): Pedido {
+    let pedido = localStorage.getItem(STORAGE_KEYS.pedido);
+    if (pedido == null) {
+      return null;
+    }
+    else {
+      console.log(pedido)
+      return JSON.parse(pedido);
+    }
+  }
+
+  setPedido(obj: Pedido) {
+    if (obj == null) {
+      localStorage.removeItem(STORAGE_KEYS.pedido);
+    }
+    else {
+      localStorage.setItem(STORAGE_KEYS.pedido, JSON.stringify(obj));
     }
   }
 }
