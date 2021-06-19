@@ -1,1 +1,8 @@
-<button type="button" class="btn btn-danger" (click)="abrirQr()">Abrir qr code</button>
+<app-header></app-header>
+
+  <ion-content [fullscreen]="true" class="app-bg">
+    <ion-img class="m-5" src="../../../assets/img/qr-code.png"></ion-img>
+    <ion-button class="mt-3 mx-5 register-button" type="submit" expand="block" (click)="abrirQr()">Escaneio o QR Code da mesa</ion-button>
+  </ion-content>
+
+<app-footer></app-footer>
