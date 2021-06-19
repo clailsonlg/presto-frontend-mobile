@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: 'order-details',
-    component: OrderDetailsComponent
+    loadChildren: () => import('./page/menu/menu-list/order-details/order-details.module').then(m => m.OrderDetailsModule)
   },
   {
     path: 'qrcode',

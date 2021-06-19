@@ -13,7 +13,7 @@ import { TokenInterceptor } from './interceptors/token-interceptor';
 import { OrderDetailsComponent } from './page/menu/menu-list/order-details/order-details.component';
 
 @NgModule({
-  declarations: [AppComponent, OrderDetailsComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

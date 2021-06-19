@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PedidoService } from '../../../../services/pedido.service';
 import { Pedido } from '../../../../models/pedido';
 import { Produto } from '../../../../models/produto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -12,7 +13,7 @@ export class OrderDetailsComponent implements OnInit {
   pedido: Pedido;
   produtos: Produto[];
 
-  constructor(private pedidoService: PedidoService) { }
+  constructor(private pedidoService: PedidoService, public router: Router) { }
   ngOnInit() {
     this.pedido = this.pedidoService.getPedido();
     this.produtos = this.pedido.itensDoPedido;
@@ -26,8 +27,17 @@ export class OrderDetailsComponent implements OnInit {
     }, 2000)
   }
 
+  ionViewDidEnter() {
+    this.pedido = this.pedidoService.getPedido();
+    this.produtos = this.pedido.itensDoPedido;
+  }
+
   removeProdutoPedido(produto: Produto) {
     this.pedidoService.removerProduto(produto);
     this.pedido = this.pedidoService.getPedido();
+  }
+
+  returnMenuList() {
+    this.router.navigate(['/menu-list']);
   }
 }
