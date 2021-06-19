@@ -10,9 +10,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TokenInterceptor } from './interceptors/token-interceptor';
+import { OrderDetailsComponent } from './page/menu/menu-list/order-details/order-details.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OrderDetailsComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

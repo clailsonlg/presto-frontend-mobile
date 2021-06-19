@@ -1,79 +1,24 @@
-<ion-content [fullscreen]="true" class="app-bg">
-  <div *ngIf="mostrarProdutos === 2">
-    <div class="d-flex justify-content-center mb-2">
-      <button type="button" class="btn btn-secondary mx-2 " id="btn_exibir_geral"
-        (click)="exibirfiltroGeral()">Geral</button>
-      <button type="button" class="btn btn-secondary mx-2" id="btn_exibir_comida"
-        (click)="exibirfiltroComida()">Comida</button>
-      <button type="button" class="btn btn-secondary mx-2" id="btn_exibir_bebida"
-        (click)="exibirfiltroBebida()">Bebida</button>
-    </div>
-
-
-
-    <!-- FILTRO GERAL -->
-    <div *ngIf="filtro === 1" id="mostrar1">
-      <div *ngFor="let produto of produtosCardapioGeral">
-        <div class="p-3 mb-2 bg-light text-dark rounded">
-          <h5>{{produto.nome}}</h5>
-          <p><strong>Ingredientes ou descrição</strong></p>
-          <p> {{produto.descricao}}</p>
-          <p> Essa é a quantidade {{produto.quantidadeEstoque}} em estoque, fique atento!</p>
-          <P>Valor R${{produto.valor}} </P>
-          <div type="button" class="btn btn-outline-primary plus btn-sm"
-            (click)="addProdutoPedido(produto)">
-            <!-- <fa-icon [icon]="faPlus" style="color: white;"></fa-icon> -->
-            +
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FILTRO COMIDA -->
-    <div *ngIf="filtro === 2" id="mostrar2">
-      <div *ngFor="let produto of produtosCardapioComida">
-        <div class="p-3 mb-2 bg-light text-dark rounded">
-          <h5>{{produto.nome}}</h5>
-          <p><strong>Ingredientes ou descrição</strong></p>
-          <p> {{produto.descricao}}</p>
-          <p> Essa é a quantidade {{produto.quantidadeEstoque}} em estoque, fique atento!</p>
-          <P>Valor R${{produto.valor}}</P>
-          <div type="button" class="btn btn-outline-primary plus btn-sm"
-            (click)="addProdutoPedido(produto)">
-            <!-- <fa-icon [icon]="faPlus" style="color: white;"></fa-icon> -->
-            +
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FILTRO BEBIDA -->
-    <div *ngIf="filtro === 3" id="mostrar3">
-      <div *ngFor="let produto of produtosCardapioBebida">
-        <div class="p-3 mb-2 bg-light text-dark rounded">
-          <h5>{{produto.nome}}</h5>
-          <p><strong>Ingredientes ou descrição</strong></p>
-          <p> {{produto.descricao}}</p>
-          <p> Essa é a quantidade {{produto.quantidadeEstoque}} em estoque, fique atento!</p>
-          <P>Valor R${{produto.valor}}</P>
-          <div type="button" class="btn btn-outline-primary plus btn-sm"
-            (click)="addProdutoPedido(produto)">
-            <!-- <fa-icon [icon]="faPlus" style="color: white;"></fa-icon> -->
-            +
-          </div>
-        </div>
+<div>
+  <div class="container-fluid">
+    <div class="card card body rounded m-5 bg-white border">
+      <div class="p-3">
+        <img [src]="produto?.imagem" class="card-img rounded" [alt]="produto?.nome" style="max-height: 100em;">
       </div>
 
+      <div class="card-body bg-white m-1 ">
+
+        <div class="d-flex flex-column">
+          <h5 class="card-title titulo">{{produto?.nome}}</h5>
+          <p>{{produto?.descricao}}</p>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn" (click)="addProdutoPedido(produto)"
+            style="background-color: #dd2d2d; color: white;">
+            +
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- <ion-list>
-    <ion-item *ngFor="let p of produto">
-      <ion-img src="../../../../assets/icon/favicon.png"></ion-img>
-      <ion-label>Pizza 01</ion-label>
-      <ion-label>Descrição</ion-label>
-      <ion-label>R$ 25,00</ion-label>
-    </ion-item>
-  </ion-list> -->
-
-</ion-content>
+</div>

@@ -4,10 +4,11 @@
 
   <form>
     <ion-item>
-      <ion-input [(ngModel)]="credential.email" name="email" type="text" placeholder="Digite seu e-mail" ></ion-input>
+      <ion-input [(ngModel)]="credential.email" name="email" type="text" placeholder="Digite seu e-mail"
+        class="test-input"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="credential.senha" name="senha" type="password" placeholder="Digite sua senha" ></ion-input>
+      <ion-input [(ngModel)]="credential.senha" name="senha" type="password" placeholder="Digite sua senha"></ion-input>
     </ion-item>
     <ion-button type="submit" expand="block" (click)="login()">Log in</ion-button>
   </form>

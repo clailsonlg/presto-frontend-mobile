@@ -6,6 +6,7 @@ import { MenuListPage } from './menu-list.page';
 
 import { MenuListPageRoutingModule } from './menu-list-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   imports: [
@@ -17,4 +18,4 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   declarations: [MenuListPage]
 })
-export class MenuListPageModule {}
+export class MenuListPageModule { }
