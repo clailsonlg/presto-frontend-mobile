@@ -1,3 +1,9 @@
+ion-content {
+  --background: none;
+  background-image: url('/assets/img/presto-background.png');
+}
+
 ion-button {
   --background: var(--presto-main-color);
+  margin-top: 50%;
 }
