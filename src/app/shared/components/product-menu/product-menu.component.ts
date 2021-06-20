@@ -51,6 +51,7 @@ export class ProductMenuComponent implements OnInit {
   }
 
   addProdutoPedido(produto: Produto) {
+
     this.pedidoService.addProduto(produto);
   }
 

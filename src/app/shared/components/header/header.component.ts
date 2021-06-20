@@ -22,4 +22,7 @@ export class HeaderComponent implements OnInit {
     return this.authService.loggedUser();
   }
 
+  returnToHome() {
+    this.router.navigate(['/home']);
+  }
 }

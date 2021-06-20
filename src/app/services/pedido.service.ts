@@ -2,17 +2,21 @@ import { Injectable } from "@angular/core";
 import { Pedido } from "../models/pedido";
 import { Produto } from "../models/produto";
 import { StorageService } from "./storage.service";
+import { HttpClient } from '@angular/common/http';
+import { PREFIX } from "../api_config/prefix";
+import { Observable } from 'rxjs';
+import { PedidoDto } from '../models/pedido.dto';
 
 const pedido: Pedido = {
   descricao: "",
   horaQueFoiFeito: 0,
-  id:null,
-  itensDoPedido:[],
-  maiorTempo:0,
-  nome:	"",
-  nomeCliente:	"",
-  tempoIdeal:0,
-  valorTotal:	0,
+  id: null,
+  itensDoPedido: [],
+  maiorTempo: 0,
+  nome: "",
+  nomeCliente: "",
+  tempoIdeal: 0,
+  valorTotal: 0,
 };
 
 @Injectable({
@@ -20,7 +24,10 @@ const pedido: Pedido = {
 })
 
 export class PedidoService {
-  constructor(private storage: StorageService) {
+
+  private url = `${PREFIX.baseUrl}/pedido`
+
+  constructor(private storage: StorageService, private http: HttpClient) {
 
   }
 
@@ -57,4 +64,15 @@ export class PedidoService {
     }
     this.storage.setPedido(pedido);
   }
-}
+
+  realizarPedido(): Observable<any> {
+    if (this.getPedido().itensDoPedido.length > 0) {
+      return this.http.post<any>(
+        `${this.url}/create/${this.storage.getLocalUser().email}`,
+        this.getPedido().itensDoPedido
+      );
+    } else {
+      alert('Não tem pedido!')
+    }
+  };
+};
