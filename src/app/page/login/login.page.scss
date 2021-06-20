@@ -13,3 +13,11 @@ ion-content {
 .options {
   --color: var(--presto-main-color);
 }
+
+ion-item {
+  border: 0.5px solid rgba(155, 155, 155, 0.6);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  --highlight-color-invalid: var(--presto-main-color);
+  --highlight-color-valid: var(--presto-main-color);
+}

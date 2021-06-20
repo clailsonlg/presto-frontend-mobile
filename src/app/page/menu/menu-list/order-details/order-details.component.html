@@ -1,36 +1,57 @@
 <app-header></app-header>
 <ion-content>
 
-  <div class='card bg-white mx-auto rounded mt-4 mb-4' style="width: 90%;">
-    <div *ngFor="let produto of produtos" class="ms-4 mt-4 mb-4">
-      <div class="d-flex col-3">
-        <div class="ms-1">
-          <h5>Produto</h5>
-          <p>{{produto.nome}}</p>
-        </div>
-        <div class="ms-5">
-          <h5>Valor</h5>
-          <p>R$ {{produto.valor}}</p>
-        </div>
-        <div class="ms-5">
-          <h5>
-            Remover
-          </h5>
-          <div class="mx-auto align-middle">
-            <button class="btn-danger rounded" style="width: 5rem; height: 1,5rem; vertical-align: middle;"
-              (click)='removeProdutoPedido(produto)'>
+  <div *ngIf="!hasOrder">
+    <div class='card bg-white mx-auto rounded mt-4 mb-4' style="width: 90%;">
+      <div *ngFor="let produto of produtos" class="ms-4 mt-4 mb-4">
+        <div class="d-flex col-3">
+          <div class="ms-1">
+            <h5>Produto</h5>
+            <p>{{produto.nome}}</p>
+          </div>
+          <div class="ms-5">
+            <h5>Valor</h5>
+            <p>R$ {{produto.valor}}</p>
+          </div>
+          <div class="ms-5">
+            <h5>
+              Remover
+            </h5>
+            <div class="mx-auto align-middle">
+              <button class="btn-danger rounded"
+                style="width: 5rem; height: 1,5rem; vertical-align: middle; font-size: 20px;"
+                (click)='removeProdutoPedido(produto)'>
 
-              <ion-icon name="trash-bin-outline" style="color: white; vertical-align: middle;"></ion-icon>
+                <ion-icon name="bag-remove-outline" style="color: white; vertical-align: middle;"></ion-icon>
 
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <div *ngIf="hasOrder">
+    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm:ss'}}</h1>
+    <h1>Valor total do pedido: {{mesa?.pedido?.valorTotal}}</h1>
+  </div>
+
 </ion-content>
 
-<button (click)="returnMenuList()">Adicionar mais itens</button>
+<div class="bg-buttons">
+  <div class="d-flex justify-content-center mb-2">
+    <button class="btn-danger btn-lg" style="font-size: 17px;" (click)="returnMenuList()">Adicionar mais
+      <ion-icon name="bag-add-outline"
+        style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;">
+      </ion-icon>
+    </button>
+    <button class="btn-danger btn-lg ms-1" style="font-size: 17px;" (click)="realizarPedido()">Confirmar pedido
+      <ion-icon name="bag-check-outline"
+        style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;"></ion-icon>
+    </button>
+  </div>
+</div>
+
 
 <app-footer></app-footer>
