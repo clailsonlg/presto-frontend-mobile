@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { SatisfacaoDTO } from '../../../models/satisfacao.dto';
 import { MesaDTO } from '../../../models/mesa.dto';
 import { MesaService } from '../../../services/mesa-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-satisfaction-modal',
@@ -11,7 +12,7 @@ import { MesaService } from '../../../services/mesa-service';
 })
 export class SatisfactionModalComponent implements OnInit {
 
-  constructor(public modalController: ModalController, private mesaService: MesaService) { }
+  constructor(public modalController: ModalController, private mesaService: MesaService, public router: Router) { }
 
   mesa: MesaDTO;
   satisfacao: SatisfacaoDTO = {
@@ -30,7 +31,7 @@ export class SatisfactionModalComponent implements OnInit {
   finishOrder() {
     this.mesaService.finishPedido(this.satisfacao, this.mesa.pedido.id).subscribe(
       res => {
-        alert(res);
+        this.router.navigate(['/home']);
       }
     ),
       err => alert(err);

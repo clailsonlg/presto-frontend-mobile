@@ -85,7 +85,7 @@ export class OrderDetailsComponent implements OnInit {
     this.mesaService.removePedido().subscribe(
       res => {
         this.pedidoService.createOrClearPedido();
-        this.router.navigate(['/menu-list']);
+        this.router.navigate(['/home']);
       }
     );
   }

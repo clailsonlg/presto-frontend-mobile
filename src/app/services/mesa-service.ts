@@ -23,6 +23,10 @@ export class MesaService {
     return this.http.get<MesaDTO>(`${PREFIX.baseUrl}/mesa/mesabycliente/${this.user.loggedUser().email}`);
   }
 
+  removePedido(): Observable<any> {
+    return this.http.put<any>(`${PREFIX.baseUrl}/mesa/removercliente/${this.user.loggedUser().email}`, true);
+  }
+
   callWaiter(): Observable<any> {
     return this.http.put<any>(`${PREFIX.baseUrl}/mesa/chamargarcom/${this.user.loggedUser().email}`, true);
   }
