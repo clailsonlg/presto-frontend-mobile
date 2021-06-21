@@ -1,3 +1,4 @@
+import { Usuario } from './../../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { PedidoService } from '../../../../services/pedido.service';
 import { Pedido } from '../../../../models/pedido';
@@ -67,5 +68,15 @@ export class OrderDetailsComponent implements OnInit {
         this.hasOrder = false;
       }
     );
+  }
+
+  cancelarPedido() {
+    this.mesaService.removePedido().subscribe(
+      res => {
+        this.pedidoService.createOrClearPedido();
+        this.router.navigate(['/menu-list']);
+      }
+    );
+
   }
 }

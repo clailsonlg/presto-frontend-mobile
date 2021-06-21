@@ -29,12 +29,19 @@
           </div>
         </div>
       </div>
+      <div class="d-flex justify-content-center mb-2" >
+        <button class="btn-danger btn-lg" style="font-size: 17px;" (click)="cancelarPedido()">Cancelar pedido
+          <ion-icon name="bag-remove-outline"
+            style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;">
+          </ion-icon>
+        </button>
+      </div>
     </div>
   </div>
 
   <div *ngIf="hasOrder">
-    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm:ss'}}</h1>
-    <h1>Valor total do pedido: {{mesa?.pedido?.valorTotal}}</h1>
+    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm'}}</h1>
+    <h1>Valor total do pedido: R$ {{mesa?.pedido?.valorTotal}}</h1>
   </div>
 
 </ion-content>
@@ -52,6 +59,8 @@
     </button>
   </div>
 </div>
+
+
 
 
 <app-footer></app-footer>
