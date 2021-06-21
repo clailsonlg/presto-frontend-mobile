@@ -23,8 +23,12 @@ export class MesaService {
     return this.http.get<MesaDTO>(`${PREFIX.baseUrl}/mesa/mesabycliente/${this.user.loggedUser().email}`);
   }
 
-  finishPedido(satisfacao: SatisfacaoDTO, pedidoId: number): Observable<String> {
-    return this.http.put<String>(
+  callWaiter(): Observable<any> {
+    return this.http.put<any>(`${PREFIX.baseUrl}/mesa/chamargarcom/${this.user.loggedUser().email}`, true);
+  }
+
+  finishPedido(satisfacao: SatisfacaoDTO, pedidoId: number): Observable<any> {
+    return this.http.put<any>(
       `${PREFIX.baseUrl}/mesa/encerrarPedido/${this.user.loggedUser().email}/${pedidoId}`, satisfacao
     )
       .pipe(
