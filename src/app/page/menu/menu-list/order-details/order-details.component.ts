@@ -4,8 +4,10 @@ import { Pedido } from '../../../../models/pedido';
 import { Produto } from '../../../../models/produto';
 import { Router } from '@angular/router';
 import { MesaService } from '../../../../services/mesa-service';
-import { Mesa } from '../../../../models/mesa';
 import { MesaDTO } from '../../../../models/mesa.dto';
+import { SatisfacaoDTO } from '../../../../models/satisfacao.dto';
+import { ModalController } from '@ionic/angular';
+import { SatisfactionModalComponent } from './satisfaction-modal/satisfaction-modal.component';
 
 @Component({
   selector: 'app-order-details',
@@ -16,18 +18,15 @@ export class OrderDetailsComponent implements OnInit {
   pedido: Pedido;
   produtos: Produto[];
   hasOrder: boolean = false;
+  shouldRenderProducts: boolean = false;
   mesa: MesaDTO;
+  satisfacao: SatisfacaoDTO
 
-  constructor(private pedidoService: PedidoService, public router: Router, private mesaService: MesaService) { }
+  constructor(private pedidoService: PedidoService, public router: Router, private mesaService: MesaService, public modalController: ModalController) { }
   ngOnInit() {
     this.pedido = this.pedidoService.getPedido();
     this.produtos = this.pedido.itensDoPedido;
-    this.mesaService.getMesaByUser().subscribe(
-      res => {
-        console.log(res);
-        this.mesa = res;
-      }
-    );
+    this.getMesa();
 
     setTimeout(() => {
       if (this.mesa.pedido === null) {
@@ -37,14 +36,25 @@ export class OrderDetailsComponent implements OnInit {
       }
     }, 2000)
 
-
     setTimeout(() => {
-      if (
-        this.pedido.itensDoPedido !== null && this.pedido.itensDoPedido !== undefined && this.pedido.itensDoPedido.length !== 0) {
-      } else {
-        alert('Não tem pedidos')
+      if (this.pedido === undefined) {
+        if (this.mesa.pedido === null) {
+          this.shouldRenderProducts = true;
+        }
+      } else if (this.pedido.itensDoPedido.length === 0) {
+        if (this.mesa.pedido === null) {
+          this.shouldRenderProducts = true;
+        }
       }
     }, 2000)
+  }
+
+  getMesa() {
+    this.mesaService.getMesaByUser().subscribe(
+      res => {
+        this.mesa = res;
+      }
+    );
   }
 
   removeProdutoPedido(produto: Produto) {
@@ -59,13 +69,34 @@ export class OrderDetailsComponent implements OnInit {
 
   realizarPedido() {
     this.pedidoService.realizarPedido().subscribe(
-      (res) => {
-        this.hasOrder = true;
+      (res: Pedido) => {
         this.pedidoService.createOrClearPedido();
+        this.getMesa();
+        this.hasOrder = true;
       },
       (error) => {
         this.hasOrder = false;
       }
     );
+  }
+
+  finishOrder() {
+    this.satisfacao = {
+      avaliacao: 'avaliação teste',
+      feedback: 'feedback teste'
+    }
+    this.mesaService.finishPedido(this.satisfacao, this.mesa.pedido.id).subscribe(
+      (res: SatisfacaoDTO) => {
+      }
+    ),
+      (err: any) => console.log(err);
+  }
+
+  async showModal() {
+    const modal = await this.modalController.create({
+      component: SatisfactionModalComponent,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 }
