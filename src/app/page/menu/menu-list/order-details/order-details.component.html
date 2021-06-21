@@ -44,24 +44,43 @@
   </div>
 
   <div *ngIf="hasOrder">
-    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm:ss'}}</h1>
-    <h1>Valor total do pedido: {{mesa?.pedido?.valorTotal}}</h1>
-    <button (click)="finishOrder()">Efetuar pagamento</button>
+    <div class='card bg-white mx-auto rounded mt-5 mb-4 d-flex flex-column' style="width: 90%;">
+      <div class="d-flex flex-row justify-content-around mt-4">
+        <p>Mesa {{mesa?.id}}</p>
+        <p>Cliente: {{mesa?.cliente?.nome}}</p>
+      </div>
+      <div *ngFor="let produto of mesa.pedido.itensDoPedido" class="d-flex flex-row justify-content-between ms-5 me-5">
+        <p>{{produto.nome}}</p>
+        <p>R$ {{produto.valor.toFixed(2).replace(".", ",")}}</p>
+      </div>
+      <hr />
+      <div class="d-flex flex-column align-items-center mt-2">
+        <p>Valor total do pedido: R$ {{totalValueParser().replace(".", ",")}}</p>
+        <p>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'hh:mm a'}}</p>
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center mt-2">
+        <p class="text-center"><strong>Aguarde o garçom para receber seu pedido e para efetuar o pagamento</strong></p>
+      </div>
+      <button class="btn btn-danger btn-lg mt-4" (click)="showModal()">Concluir atendimento</button>
+    </div>
   </div>
 
 </ion-content>
 
-<div class="bg-buttons">
-  <div class="d-flex justify-content-center mb-2">
-    <button class="btn-danger btn-lg" style="font-size: 17px;" (click)="returnMenuList()">Adicionar mais
-      <ion-icon name="bag-add-outline"
-        style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;">
-      </ion-icon>
-    </button>
-    <button class="btn-danger btn-lg ms-1" style="font-size: 17px;" (click)="realizarPedido()">Confirmar pedido
-      <ion-icon name="bag-check-outline"
-        style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;"></ion-icon>
-    </button>
+<div *ngIf="!hasOrder">
+  <div class="bg-buttons">
+    <div class="d-flex justify-content-center mb-2">
+      <button class="btn-danger btn-lg" style="font-size: 17px;" (click)="returnMenuList()">Adicionar mais
+        <ion-icon name="bag-add-outline"
+          style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;">
+        </ion-icon>
+      </button>
+      <button class="btn-danger btn-lg ms-1" style="font-size: 17px;" (click)="realizarPedido()">Confirmar pedido
+        <ion-icon name="bag-check-outline"
+          style="color: white; vertical-align: middle; font-size: 20px; margin-left: 3px; margin-bottom: 3px;">
+        </ion-icon>
+      </button>
+    </div>
   </div>
 </div>
 

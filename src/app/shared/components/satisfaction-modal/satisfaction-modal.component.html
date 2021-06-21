@@ -1,0 +1,68 @@
+<div class="ion-page">
+  <div class="container-fluid teste">
+    <div class="d-flex flex-column align-items-center">
+      <div class="card bg-white rounded mt-5 mb-4" style="width: 90%;">
+        <div class="card-title mx-auto mt-4">
+          <h3>Obrigado e volte sempre!</h3>
+        </div>
+        <div class="card-body mx-auto">
+          <p class="text-center">Gostou do atendimento?<br />Dê o seu feedback</p>
+
+          <p class="text-center">Qual nota você daria para nosso serviço?</p>
+        </div>
+        <div class="card-content-md d-flex flex-row mb-4 justify-content-around">
+          <div class="form-check">
+            <input [(ngModel)]="satisfacao.avaliacao" class="form-check-input" type="radio" name="avaliacao" id="1"
+              [value]="'Pessimo'">
+            <label class="form-check-label" for="1">
+              1
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input [(ngModel)]="satisfacao.avaliacao" class="form-check-input" type="radio" name="avaliacao" id="2"
+              [value]="'Ruim'">
+            <label class="form-check-label" for="2">
+              2
+            </label>
+          </div>
+          <div class="form-check">
+            <input [(ngModel)]="satisfacao.avaliacao" class="form-check-input" type="radio" name="avaliacao" id="3"
+              [value]="'Bom'">
+            <label class="form-check-label" for="3">
+              3
+            </label>
+          </div>
+          <div class="form-check">
+            <input [(ngModel)]="satisfacao.avaliacao" class="form-check-input" type="radio" name="avaliacao" id="4"
+              [value]="'Otimo'">
+            <label class="form-check-label" for="4">
+              4
+            </label>
+          </div>
+          <div class="form-check">
+            <input [(ngModel)]="satisfacao.avaliacao" class="form-check-input" type="radio" name="avaliacao" id="5"
+              [value]="'Excelente'">
+            <label class="form-check-label" for="5">
+              5
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card bg-white rounded mb-4" style="width: 90%;">
+        <div class="card-title mx-auto mt-4">
+          <h5 class="text-center">Gostaria de adiconar algum comentário?</h5>
+        </div>
+        <div class="card-body">
+          <div class='input'>
+            <textarea [(ngModel)]="satisfacao.feedback" class='form-control' name='feedback'
+              placeholder="Qual o seu feedback?">
+          </textarea>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-lg btn-danger button-round" type="submit" (click)='finishOrder()'>Confirmar</button>
+    </div>
+  </div>
+</div>
