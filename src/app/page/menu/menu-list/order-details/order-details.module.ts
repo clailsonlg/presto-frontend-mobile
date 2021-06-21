@@ -13,7 +13,7 @@ import { OrderDetailsRoutingModule } from './order-details.routing.module';
         FormsModule,
         IonicModule,
         OrderDetailsRoutingModule,
-        SharedModule
+        SharedModule,
     ],
     declarations: [OrderDetailsComponent]
 })

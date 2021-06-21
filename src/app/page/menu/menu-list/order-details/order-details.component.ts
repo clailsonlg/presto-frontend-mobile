@@ -7,7 +7,7 @@ import { MesaService } from '../../../../services/mesa-service';
 import { MesaDTO } from '../../../../models/mesa.dto';
 import { SatisfacaoDTO } from '../../../../models/satisfacao.dto';
 import { ModalController } from '@ionic/angular';
-import { SatisfactionModalComponent } from './satisfaction-modal/satisfaction-modal.component';
+import { SatisfactionModalComponent } from '../../../../shared/components/satisfaction-modal/satisfaction-modal.component';
 
 @Component({
   selector: 'app-order-details',
@@ -86,10 +86,10 @@ export class OrderDetailsComponent implements OnInit {
       feedback: 'feedback teste'
     }
     this.mesaService.finishPedido(this.satisfacao, this.mesa.pedido.id).subscribe(
-      (res: SatisfacaoDTO) => {
+      res => {
       }
     ),
-      (err: any) => console.log(err);
+      err => console.log(err);
   }
 
   async showModal() {
@@ -98,5 +98,10 @@ export class OrderDetailsComponent implements OnInit {
       cssClass: 'my-custom-class'
     });
     return await modal.present();
+  }
+
+  totalValueParser() {
+    let result = this.mesa.pedido.valorTotal.toFixed(2);
+    return result
   }
 }
