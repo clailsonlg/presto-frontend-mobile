@@ -4,13 +4,15 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { PREFIX } from '../api_config/prefix';
 import { MesaDTO } from '../models/mesa.dto';
+import { PedidoService } from './pedido.service';
+import { SatisfacaoDTO } from '../models/satisfacao.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MesaService {
 
-  constructor(private http: HttpClient, private user: AuthService) { }
+  constructor(private http: HttpClient, private user: AuthService, private pedidoService: PedidoService) { }
 
   logarNaMesa(id: string): Observable<any> {
     return this.http.put<any>(`${PREFIX.baseUrl}/mesa/addcliente/${+id}/${this.user.loggedUser().email}/${this.user.loggedUser().idRestaurante}`, {});
@@ -28,4 +30,9 @@ export class MesaService {
     return this.http.put<any>(`${PREFIX.baseUrl}/mesa/chamargarcom/${this.user.loggedUser().email}`, true);
   }
 
+  finishPedido(satisfacao: SatisfacaoDTO, pedidoId: number): Observable<any> {
+    return this.http.put<any>(
+      `${PREFIX.baseUrl}/mesa/encerrarPedido/${this.user.loggedUser().email}/${pedidoId}`, satisfacao
+    );
+  }
 }

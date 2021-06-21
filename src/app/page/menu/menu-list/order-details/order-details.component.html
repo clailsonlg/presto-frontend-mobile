@@ -39,9 +39,14 @@
     </div>
   </div>
 
+  <div *ngIf="shouldRenderProducts">
+    <h1>Não há produtos no pedido</h1>
+  </div>
+
   <div *ngIf="hasOrder">
-    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm'}}</h1>
-    <h1>Valor total do pedido: R$ {{mesa?.pedido?.valorTotal}}</h1>
+    <h1>Previsão de prontidão: {{mesa?.pedido?.tempoIdeal | date: 'h:mm:ss'}}</h1>
+    <h1>Valor total do pedido: {{mesa?.pedido?.valorTotal}}</h1>
+    <button (click)="finishOrder()">Efetuar pagamento</button>
   </div>
 
 </ion-content>
